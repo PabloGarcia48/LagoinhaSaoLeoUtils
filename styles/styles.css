@@ -339,6 +339,33 @@ footer span {
   line-height: 1.55;
 }
 
+.pix-qr-code {
+  display: block;
+  width: min(100%, 280px);
+  margin: 18px auto;
+  border: 8px solid rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.pix-key {
+  overflow-wrap: anywhere;
+}
+
+.pix-key strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.pix-note {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
 .button-link {
   display: inline-flex;
   min-height: 52px;
@@ -348,6 +375,8 @@ footer span {
   border-radius: 8px;
   background: var(--gold);
   color: #15100a;
+  cursor: pointer;
+  font: inherit;
   font-weight: 800;
   transition:
     transform 160ms ease,

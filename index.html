@@ -47,7 +47,7 @@
         </div>
       </section>
 
-      <section class="links" aria-label="Links principais">
+      <!-- <section class="links" aria-label="Links principais">
         <a class="featured-link" href="#agenda">
           <span>
             <strong>Agenda da semana</strong>
@@ -89,34 +89,34 @@
             </span>
           </a>
         </div>
-      </section>
+      </section> -->
 
       <section class="info-panel" id="agenda" aria-labelledby="agenda-title">
         <div>
           <p class="section-label">Agenda</p>
-          <h2 id="agenda-title">Próximos encontros</h2>
+          <h2 id="agenda-title">Nossos encontros</h2>
         </div>
 
         <ul class="schedule-list">
           <li>
             <span>Domingo</span>
-            <strong>10h e 19h</strong>
+            <strong>10h</strong>
             <small>Cultos de celebração</small>
           </li>
           <li>
-            <span>Quarta</span>
+            <span>Quinta</span>
             <strong>20h</strong>
-            <small>Culto de ensino e oração</small>
+            <small>GCs</small>
           </li>
-          <li>
+          <!-- <li>
             <span>Sábado</span>
             <strong>18h</strong>
             <small>Jovens e adolescentes</small>
-          </li>
+          </li> -->
         </ul>
       </section>
 
-      <section class="action-band" id="celulas">
+      <!-- <section class="action-band" id="celulas">
         <div>
           <p class="section-label">Comunidade</p>
           <h2>Você não precisa caminhar sozinho.</h2>
@@ -128,23 +128,52 @@
         <a class="button-link" href="https://wa.me/5500000000000">
           Quero participar
         </a>
-      </section>
+      </section> -->
 
       <section class="giving" id="contribua" aria-labelledby="giving-title">
         <p class="section-label">Contribuição</p>
         <h2 id="giving-title">Dízimos e ofertas</h2>
-        <p>
-          Chave Pix: <strong>pix@igrejalagoinha.org</strong>
+        <img
+          class="pix-qr-code"
+          src="./assets/qr-code-oferta.png"
+          alt="QR Code para dízimos e ofertas"
+        />
+        <p class="pix-key">
+          Chave Pix:
+          <strong id="pix-key">7a8ad273-be01-4b47-b7a8-b32c5aac696f</strong>
         </p>
-        <a class="button-link secondary" href="https://wa.me/5500000000000">
-          Enviar comprovante
-        </a>
+        <button class="button-link secondary" type="button" data-copy-pix>
+          Copiar chave Pix
+        </button>
+        <p class="pix-note">
+          Pix para Luciano Nascimento, pastor líder da igreja Lagoinha Batista
+          de São Leopoldo
+        </p>
       </section>
 
       <footer>
-        <strong>Igreja Lagoinha</strong>
-        <span>Rua Exemplo, 123 · Sua Cidade</span>
+        <strong>Lagoinha São Leopoldo</strong>
+        <span>Av. Caxias do Sul, 1191 · São Leopoldo</span>
       </footer>
     </main>
+    <script>
+      const copyPixButton = document.querySelector("[data-copy-pix]");
+      const pixKey = document.querySelector("#pix-key")?.textContent?.trim();
+
+      copyPixButton?.addEventListener("click", async () => {
+        if (!pixKey) return;
+
+        try {
+          await navigator.clipboard.writeText(pixKey);
+          copyPixButton.textContent = "Chave copiada";
+        } catch {
+          copyPixButton.textContent = pixKey;
+        }
+
+        window.setTimeout(() => {
+          copyPixButton.textContent = "Copiar chave Pix";
+        }, 2200);
+      });
+    </script>
   </body>
 </html>
